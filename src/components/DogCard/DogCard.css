@@ -1,33 +1,8 @@
 .card {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-}
-
-.card-content {
-  padding: 12px;
 }
 
 .card h4 {
-  margin: 0 0 8px;
   font-size: 18px;
 }
 
@@ -36,36 +11,4 @@
   color: #555;
   font-size: 14px;
   font-style: italic;
-}
-
-.card-button {
-  padding-top: 10px;
-  display: flex;
-  gap: 10px;
-}
-
-.card-button button {
-  border: none;
-  border-radius: 6px;
-  background-color: #718f94;
-  color: white;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.card-button button:hover {
-  background-color: #5f7c80;
-}
-
-.card-button button:last-child {
-  color: #555;
-  border: 1px solid #718f94;
-  background-color: white;
-}
-
-.card-button button:last-child:hover {
-  background-color: #718f94;
-  color: white;
 }

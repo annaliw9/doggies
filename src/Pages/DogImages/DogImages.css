@@ -1,0 +1,23 @@
+.dog-img {
+  cursor: auto;
+}
+
+.load-more--button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 1px solid #718f94;
+  border-radius: 6px;
+  background-color: white;
+  color: #555;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.load-more--button:hover {
+  color: white;
+  background-color: #5f7c80;
+  border-color: #5f7c80;
+}

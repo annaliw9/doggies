@@ -1,11 +1,37 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { fetchBreedById } from "../../api/dogApi";
 import "./DogDetails.css";
 
-const DogDetails = ({ dogs }) => {
+const DogDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const dog = dogs.find((d) => d.id === id);
+  const [dog, setDog] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const loadDog = async () => {
+      try {
+        setLoading(true);
+
+        const dog = await fetchBreedById(id);
+        console.log(dog);
+
+        setDog(dog);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadDog();
+  }, [id]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   if (!dog) return <p>Dog not found</p>;
 
   const parser = (text) => {
@@ -33,7 +59,7 @@ const DogDetails = ({ dogs }) => {
       </button>
 
       <div className="details-hero">
-        <img src={dog.image?.url} alt={dog.name} />
+        {/* <img src={dog.image?.url || "Not image found"} alt={dog.name} /> */}
 
         <div className="details-info">
           <h1>{dog.name}</h1>
@@ -51,6 +77,7 @@ const DogDetails = ({ dogs }) => {
                 </>
               )}
             </div>
+
             <div>
               <strong>Weight</strong>
               {weight?.range ? (
@@ -62,6 +89,7 @@ const DogDetails = ({ dogs }) => {
                 </>
               )}
             </div>
+
             <div>
               <strong>Life Span</strong>
               <p>{dog.life_span} Years</p>
@@ -70,7 +98,12 @@ const DogDetails = ({ dogs }) => {
 
           <div className="details-description">{dog.description}</div>
 
-          <button className="adopt-btn">Adopt Me 🐶</button>
+          <button
+            className="adopt-btn"
+            onClick={() => navigate(`/breed/${id}/images`)}
+          >
+            Explore Dogs 🐶
+          </button>
         </div>
       </div>
 
