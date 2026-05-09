@@ -1,16 +1,137 @@
-# React + Vite
+# Adopt A Dog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React web app that allows users to browse dog breeds, explore breed galleries, and save favorite dogs using TheDogAPI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Browse dog breeds
+- View breed details
+- Explore breed image galleries
+- Save favorite dogs
+- Remove favorites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- React Router
+- JavaScript
+- CSS
+- TheDogAPI
+
+---
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/annaliw9/doggies.git
+```
+
+---
+
+### 2. Navigate into the project
+
+```bash
+cd doggies
+```
+
+---
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+### 4. Create environment variables
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_API_KEY=your_api_key_here
+```
+
+Get your API key from:
+
+https://thedogapi.com
+
+---
+
+### 5. Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 📁 Project Structure
+
+```bash
+src/
+│
+├── api/
+│   ├── dogApi.js
+│   └── favoritesApi.js
+│
+├── components/
+│   ├── DogCard/
+│   ├── DogDetails/
+│   ├── Header/
+│   ├── Footer/
+│   └── Pagination/
+│
+├── Pages/
+│   ├── Home/
+│   ├── Favorites/
+│   └── DogImages/
+│
+├── utils/
+│   └── paginationUtils.js
+│
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## API Endpoints Used
+
+### Breeds
+```http
+GET /v1/breeds
+```
+
+### Breed by Id
+```http
+GET /v1/breeds/id
+```
+
+### Breed Images
+```http
+GET /v1/images/search?breed_ids={id}&limit=${limit}&page=${page}
+```
+
+### Favorites
+```http
+POST /v1/favourites
+GET /v1/favourites
+DELETE /v1/favourites/{id}
+```
+
+---
+
+## Author
+
+Shuna Li
+
+GitHub: https://github.com/annaliw9
+
+---
